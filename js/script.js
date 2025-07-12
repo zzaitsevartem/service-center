@@ -44,24 +44,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const reviewSets = [
         [
-            '/img/otzivi/otziv1.webp',
-            '/img/otzivi/otziv2.webp',
-            '/img/otzivi/otziv3.webp'
+            'img/otzivi/otziv1.webp',
+            'img/otzivi/otziv2.webp',
+            'img/otzivi/otziv3.webp'
         ],
         [
-            '/img/otzivi/otziv4.webp',
-            '/img/otzivi/otziv5.webp',
-            '/img/otzivi/otziv6.webp'
+            'img/otzivi/otziv4.webp',
+            'img/otzivi/otziv5.webp',
+            'img/otzivi/otziv6.webp'
         ],
         [
-            '/img/otzivi/otziv7.webp',
-            '/img/otzivi/otziv8.webp',
-            '/img/otzivi/otziv9.webp'
+            'img/otzivi/otziv7.webp',
+            'img/otzivi/otziv8.webp',
+            'img/otzivi/otziv9.webp'
         ],
         [
-            '/img/otzivi/otziv10.webp',
-            '/img/otzivi/otziv11.webp',
-            '/img/otzivi/otziv12.webp'
+            'img/otzivi/otziv10.webp',
+            'img/otzivi/otziv11.webp',
+            'img/otzivi/otziv12.webp'
         ]
     ];
 
