@@ -33,7 +33,7 @@
     .logo-img {
         max-width: 150px;
         max-height: 80px;
-        content: url('/img/logo/logofon.webp');
+        content: url('../img/logo/logofon.webp');
     }
 
     .nav-list {
@@ -245,7 +245,7 @@
     .logo-img {
         max-width: 120px;
         max-height: 60px;
-        content: url('/img/logo/logofon.webp');
+        content: url('../img/logo/logofon.webp');
     }
 
     .burger-menu {
