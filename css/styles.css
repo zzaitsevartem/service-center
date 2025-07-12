@@ -1,0 +1,935 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e5e8ec 100%);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+.header {
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    transform: translateY(0);
+}
+
+.header.hidden {
+    transform: translateY(-100%);
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 15px 20px;
+}
+
+.logo-img {
+    max-width: 200px;
+    padding-top: 15px;
+    transition: transform 0.3s;
+    max-height: 100px;
+}
+
+.logo-img:hover {
+    transform: scale(1.1);
+}
+
+.nav {
+    position: relative;
+}
+
+.burger-menu {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s;
+    padding: 10px;
+}
+
+.burger-menu:hover {
+    color: #007bff;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+.nav-list img {
+        display: none;
+    }
+.nav-list.active {
+    display: flex;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-list li a:hover {
+    color: #007bff;
+    transform: translateY(-2px);
+}
+
+.hero {
+    background: url('/img/general/hardware-component-background.webp') no-repeat center/cover;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    background: rgba(65, 65, 65, 0.658);
+    padding: 30px;
+    border-radius: 15px;
+    animation: fadeIn 1s ease-in;
+}
+
+.hero h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.hero-btn {
+    display: inline-block;
+    background: #007bff;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.hero-btn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Блок "Почему мы" */
+.why-us {
+    padding: 80px 0;
+    text-align: center;
+    background: #fff;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.why-us h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #222;
+}
+
+.why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.why-us-item {
+    position: relative;
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.why-us-item::before {
+    content: '\f013';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 80px;
+    color: rgba(0, 123, 255, 0.1);
+    z-index: 0;
+}
+
+.why-us-item[data-icon="fa-shield-alt"]::before { content: '\f3ed'; }
+.why-us-item[data-icon="fa-clock"]::before { content: '\f017'; }
+.why-us-item[data-icon="fa-tag"]::before { content: '\f02b'; }
+.why-us-item[data-icon="fa-tools"]::before { content: '\f7d9'; }
+.why-us-item[data-icon="fa-users"]::before { content: '\f0c0'; }
+
+.why-us-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.why-us-item h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.why-us-item p {
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Блок с отзывами */
+.reviews {
+    padding: 80px 0;
+    text-align: center;
+    background: #fff;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.reviews h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #222;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    min-height: 200px;
+}
+
+.reviews-grid.fade {
+    opacity: 0;
+}
+
+.review-item {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.review-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.review-item img:hover {
+    transform: scale(1.05);
+}
+
+.reviews-nav {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.prev-btn, .next-btn {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1rem;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+/* Форма обратной связи */
+.contact-form {
+    padding: 80px 0;
+    text-align: center;
+    background: #fff;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #222;
+}
+
+.contact-form form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.contact-form button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.contact-form button:not(:disabled):hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.contact-form button i {
+    font-size: 0.9rem;
+}
+
+/* Стили для чекбокса и текста согласия */
+.form-consent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+.form-consent label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-consent input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.form-consent a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.form-consent a:hover {
+    text-decoration: underline;
+}
+
+/* Блок с картой */
+.map {
+    padding: 80px 0;
+    background: #fff;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.map-info {
+    flex: 0 1 400px;
+    text-align: left;
+}
+
+.map-info h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.map-info .schedule {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.map-info p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.map-info strong {
+    font-weight: 600;
+    color: #222;
+}
+
+.map-info .divider {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 15px 0;
+    width: 90%;
+}
+
+.social-links {
+    display: flex;
+    gap: 21px;
+    margin-top: 20px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s;
+}
+
+.social-link:hover {
+    transform: scale(1.1);
+}
+
+.social-icon {
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.social-link span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.social-link:hover .social-icon.telegram {
+    color: #0088cc;
+}
+
+.social-link:hover .social-icon.whatsapp {
+    color: #25d366;
+}
+
+.social-link:hover .social-icon.twogis {
+    color: #ff6200;
+}
+
+.map-placeholder {
+    width: 450px;
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.map-placeholder iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* Футер */
+.footer {
+    background: #afacac;
+    color: #333;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 6px 0;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Стили для страницы "Услуги" (services.html) */
+.services {
+    padding: 80px 0;
+    text-align: center;
+    background: #fff;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.services h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #222;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.service-item {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.service-item h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.service-item p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.service-item b {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.service-btn {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.service-btn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Стили для страницы "Политика конфиденциальности" (privacy.html) */
+.privacy {
+    padding: 80px 0;
+    text-align: left;
+    background: #fff;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.privacy h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #222;
+    text-align: center;
+    
+}
+
+
+.privacy-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+}
+
+.privacy-content p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.privacy-content h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+    margin: 30px 0 15px;
+    color: #222;
+}
+
+.privacy-content strong {
+    font-weight: 600;
+    color: #222;
+}
+
+.privacy-content em {
+    color: #555;
+}
+
+.privacy-content ul {
+    list-style: disc;
+    margin: 10px 0 20px 20px;
+}
+
+.privacy-content ul li {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.back-to-main {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.back-btn {
+    display: inline-block;
+    background: #007bff;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.back-btn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Стили для страницы "О нас" (about.html) */
+.about {
+    padding: 80px 0;
+    text-align: left;
+    background: #fff;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.about h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #222;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.about-content h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+    margin: 30px 0 15px;
+    color: #222;
+}
+
+.about-content strong {
+    font-weight: 600;
+    color: #222;
+}
+
+.about-content ul {
+    list-style: disc;
+    margin: 10px 0 20px 20px;
+}
+
+.about-content ul li {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.about-content a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.about-content a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: #007bff;
+}
+
+.modal-content h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.modal-content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.whatsapp-btn {
+    background: #25d366;
+    color: #fff;
+}
+
+.whatsapp-btn:hover {
+    background: #1ebe56;
+    transform: scale(1.05);
+}
+
+.telegram-btn {
+    background: #0088cc;
+    color: #fff;
+}
+
+.telegram-btn:hover {
+    background: #006a9a;
+    transform: scale(1.05);
+}
+
+.error404 {
+    margin: 0;
+  padding: 0;
+  font-weight: 800;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e5e8ec 100%);
+  font-family: cursive;
+}
+
+svg {
+    font: 10.5em 'Monoton';
+    width: 100%;
+    height: 100vh;
+}
+
+.contenterror{
+  text-align: center;
+}
+
+
+.h-and-a h1 {
+    text-align: center;
+    font: 1.5em 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #2f8f7f;
+    opacity: .6;
+}
+.h-and-a a{
+   display: inline-block;
+   text-transform: uppercase;
+   font-size: 1em 'Roboto';
+   font-weight: 300;
+   border: 1px solid #2f8f7f;
+   border-radius: 4px;
+   color: #2f8f7f;
+   margin: 15px 0;
+   padding: 8px 14px;
+   text-decoration: none;
+   opacity: .6;
+}
+
+.text {
+    fill: none;
+    stroke-dasharray: 8% 29%;
+    stroke-width: 5px;
+    stroke-dashoffset: 1%;
+    animation: stroke-offset 5.5s infinite linear;
+}
+
+.text:nth-child(1){
+	stroke: #1c234d;
+	animation-delay: -1;
+}
+
+.text:nth-child(2){
+	stroke: #315b2c;
+	animation-delay: -2s;
+}
+
+.text:nth-child(3){
+	stroke: #2f8f7f;
+	animation-delay: -3s;
+}
+
+.text:nth-child(4){
+	stroke: #2f8f7f;
+	animation-delay: -4s;
+}
+
+.text:nth-child(5){
+	stroke: #da2717;
+	animation-delay: -5s;
+}
+
+@keyframes stroke-offset{
+	100% {
+    stroke-dashoffset: -35%;
+  }
+}
