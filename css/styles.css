@@ -100,7 +100,7 @@ body {
 }
 
 .hero {
-    background: url('img/general/hardware-component-background.webp') no-repeat center/cover;
+    background: url('../img/general/hardware-component-background.webp') no-repeat center/cover;
     height: 600px;
     display: flex;
     align-items: center;
